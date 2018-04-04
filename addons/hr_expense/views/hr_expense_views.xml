@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
+    <!-- you are in david's branch -->
         <record id="view_expenses_tree" model="ir.ui.view">
             <field name="name">hr.expense.tree</field>
             <field name="model">hr.expense</field>
