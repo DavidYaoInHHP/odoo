@@ -3,14 +3,18 @@
 # * product
 # 
 # Translators:
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux, 2017
+# Saba Khmaladze <skhmaladze@uglt.org>, 2018
+# Giorgi Melitauri <gmelitauri@live.com>, 2018
+# Gizo Kobakhidze <040168@gmail.com>, 2018
+# David Machakhelidze <david.machakhelidze@gmail.com>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 11:26+0000\n"
-"PO-Revision-Date: 2017-10-02 11:26+0000\n"
-"Last-Translator: Martin Trigaux <mat@odoo.com>, 2017\n"
+"POT-Creation-Date: 2018-02-19 13:43+0000\n"
+"PO-Revision-Date: 2018-02-19 13:43+0000\n"
+"Last-Translator: David Machakhelidze <david.machakhelidze@gmail.com>, 2018\n"
 "Language-Team: Georgian (https://www.transifex.com/odoo/teams/41243/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +54,7 @@ msgstr ""
 #: code:addons/product/models/product_template.py:324
 #, python-format
 msgid "%s (copy)"
-msgstr ""
+msgstr "%s (კოპირება)"
 
 #. module: product
 #: model:product.attribute.value,name:product.product_attribute_value_1
@@ -147,7 +151,7 @@ msgstr ""
 #. module: product
 #: model:ir.ui.view,arch_db:product.report_pricelist
 msgid "<strong>Description</strong>"
-msgstr ""
+msgstr "<strong>აღწერა</strong>"
 
 #. module: product
 #: model:ir.ui.view,arch_db:product.report_pricelist
@@ -245,12 +249,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:product.field_product_uom_active
 #: model:ir.ui.view,arch_db:product.product_supplierinfo_search_view
 msgid "Active"
-msgstr ""
+msgstr "აქტიური"
 
 #. module: product
 #: model:product.category,name:product.product_category_all
 msgid "All"
-msgstr ""
+msgstr "ყველა"
 
 #. module: product
 #: code:addons/product/models/product_pricelist.py:441
@@ -616,13 +620,13 @@ msgstr ""
 #. module: product
 #: model:product.attribute,name:product.product_attribute_2
 msgid "Color"
-msgstr ""
+msgstr "ფერი"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product_color
 #: model:ir.model.fields,field_description:product.field_product_template_color
 msgid "Color Index"
-msgstr ""
+msgstr "ფერის ინდექსი"
 
 #. module: product
 #: model:product.product,description_sale:product.product_product_6
@@ -691,7 +695,7 @@ msgstr ""
 #. module: product
 #: model:ir.model,name:product.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "კონტაქტი"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_uom_category_id
@@ -741,7 +745,7 @@ msgstr ""
 #. module: product
 #: model:ir.model,name:product.model_res_country_group
 msgid "Country Group"
-msgstr ""
+msgstr "ქვეყნების ჯგუფი"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_pricelist_country_group_ids
@@ -842,7 +846,7 @@ msgstr ""
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_price_history_datetime
 msgid "Date"
-msgstr ""
+msgstr "თარიღ"
 
 #. module: product
 #: model:product.uom,name:product.product_uom_day
@@ -1123,6 +1127,11 @@ msgstr ""
 #: model:product.template,website_description:product.product_product_8_product_template
 msgid "Friendly to the environment."
 msgstr ""
+
+#. module: product
+#: model:ir.ui.view,arch_db:product.product_template_search_view
+msgid "Future Activities"
+msgstr "მომავალი ქმედებები"
 
 #. module: product
 #: model:product.product,name:product.product_product_1
@@ -1461,6 +1470,11 @@ msgid "Last Updated on"
 msgstr "ბოლოს განახლებულია"
 
 #. module: product
+#: model:ir.ui.view,arch_db:product.product_template_search_view
+msgid "Late Activities"
+msgstr "ბოლო აქტივობები"
+
+#. module: product
 #: model:ir.model.fields,help:product.field_product_supplierinfo_delay
 msgid ""
 "Lead time in days between the confirmation of the purchase order and the "
@@ -1609,7 +1623,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product.field_product_template_name
 #: model:ir.model.fields,field_description:product.field_product_uom_categ_name
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
@@ -2005,6 +2019,11 @@ msgid "Public Price"
 msgstr ""
 
 #. module: product
+#: model:product.pricelist,name:product.list0
+msgid "Public Pricelist"
+msgstr ""
+
+#. module: product
 #: model:ir.model.fields,field_description:product.field_product_product_description_purchase
 #: model:ir.model.fields,field_description:product.field_product_template_description_purchase
 msgid "Purchase Description"
@@ -2241,6 +2260,13 @@ msgid ""
 msgstr ""
 
 #. module: product
+#: model:ir.ui.view,arch_db:product.product_template_search_view
+msgid "Show all records which has next action date is before today"
+msgstr ""
+"ყველა ჩანაწერის ჩვენება, რომლებსაც შემდეგი მოქმედების თარიღი აქვს დღევანდელ "
+"დღემდე"
+
+#. module: product
 #: model:ir.model.fields,field_description:product.field_res_config_settings_group_product_pricelist
 msgid "Show pricelists On Products"
 msgstr ""
@@ -2342,7 +2368,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item_date_start
 #: model:ir.model.fields,field_description:product.field_product_supplierinfo_date_start
 msgid "Start Date"
-msgstr ""
+msgstr "დაწყების თარიღი"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_supplierinfo_date_start
@@ -2673,6 +2699,11 @@ msgid ""
 msgstr ""
 
 #. module: product
+#: model:ir.ui.view,arch_db:product.product_template_search_view
+msgid "Today Activities"
+msgstr "დღევანდელი აქტივობები"
+
+#. module: product
 #: model:product.product,website_description:product.product_product_7
 #: model:product.template,website_description:product.product_product_7_product_template
 msgid "Two is better than one."
@@ -2689,11 +2720,6 @@ msgstr ""
 msgid ""
 "USB port allows for software update to ensure ongoing Bluetooth device "
 "compatibility"
-msgstr ""
-
-#. module: product
-#: model:product.pricelist,name:product.list0
-msgid "USD"
 msgstr ""
 
 #. module: product

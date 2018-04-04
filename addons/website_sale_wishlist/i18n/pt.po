@@ -3,7 +3,7 @@
 # * website_sale_wishlist
 # 
 # Translators:
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux, 2017
 # Manuela Silva <manuela.silva@sky.com>, 2017
 msgid ""
 msgstr ""
@@ -39,7 +39,7 @@ msgstr "Ativo"
 #. module: website_sale_wishlist
 #: model:ir.ui.view,arch_db:website_sale_wishlist.product_wishlist
 msgid "Add <span class=\"hidden-xs\">to Cart</span>"
-msgstr ""
+msgstr "Adicionar ao <span class=\"hidden-xs\">Carrinho</span>"
 
 #. module: website_sale_wishlist
 #: model:ir.ui.view,arch_db:website_sale_wishlist.product_wishlist
@@ -95,7 +95,7 @@ msgstr "Nome a Mostrar"
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist_id
 msgid "ID"
-msgstr "ID"
+msgstr "Id."
 
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist___last_update
@@ -165,7 +165,7 @@ msgstr "Utilizadores"
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist_website_id
 msgid "Website"
-msgstr ""
+msgstr "Site da Web"
 
 #. module: website_sale_wishlist
 #: model:ir.model.fields,help:website_sale_wishlist.field_product_wishlist_session

@@ -3,15 +3,15 @@
 # * calendar
 # 
 # Translators:
-# Martin Trigaux <mat@odoo.com>, 2017
-# Jorunn D. Newth <jdn@eyenetworks.no>, 2017
+# Martin Trigaux, 2017
+# Jorunn D. Newth, 2017
 # Viktor Basso <viktor@voit.no>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-30 13:12+0000\n"
-"PO-Revision-Date: 2017-11-30 13:12+0000\n"
+"POT-Creation-Date: 2018-02-07 10:30+0000\n"
+"PO-Revision-Date: 2018-02-07 10:30+0000\n"
 "Last-Translator: Viktor Basso <viktor@voit.no>, 2017\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/odoo/teams/41243/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -362,11 +362,6 @@ msgid ""
 msgstr ""
 
 #. module: calendar
-#: model:ir.model.fields,field_description:calendar.field_calendar_event_is_highlighted
-msgid "# Meetings Highlight"
-msgstr ""
-
-#. module: calendar
 #: model:mail.template,subject:calendar.calendar_template_meeting_reminder
 msgid "${object.event_id.name} - Reminder"
 msgstr "${object.event_id.name} - påminnelse"
@@ -388,6 +383,8 @@ msgid ""
 "%s at %s To\n"
 " %s at %s (%s)"
 msgstr ""
+"%s kl %s til\n"
+" %s kl %s (%s)"
 
 #. module: calendar
 #: code:addons/calendar/models/calendar.py:711
@@ -895,6 +892,11 @@ msgstr "Invitasjoner"
 #: model:ir.model,name:calendar.model_mail_wizard_invite
 msgid "Invite wizard"
 msgstr "Inviter veiviser"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_is_highlighted
+msgid "Is the Event Highlighted"
+msgstr ""
 
 #. module: calendar
 #: selection:calendar.event,byday:0

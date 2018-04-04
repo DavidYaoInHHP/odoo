@@ -824,12 +824,9 @@ var FieldX2Many = AbstractField.extend({
             return this._super();
         }
         if (this.renderer) {
-            this.renderer.updateState(this.value, {});
             this.currentColInvisibleFields = this._evalColumnInvisibleFields();
-            this.pager.updateState({
-                size: this.value.count,
-                columnInvisibleFields: this.currentColInvisibleFields,
-            });
+            this.renderer.updateState(this.value, {'columnInvisibleFields': this.currentColInvisibleFields});
+            this.pager.updateState({ size: this.value.count });
             return $.when();
         }
         var arch = this.view.arch;
@@ -879,10 +876,15 @@ var FieldX2Many = AbstractField.extend({
         this.pager = new Pager(this, this.value.count, this.value.offset + 1, this.value.limit, {
             single_page_hidden: true,
             withAccessKey: false,
+            validate: function () {
+                var isList = self.view.arch.tag === 'tree';
+                // TODO: we should have some common method in the basic renderer...
+                return isList ? self.renderer.unselectRow() : $.when();
+            },
         });
         this.pager.on('pager_changed', this, function (new_state) {
-            this.trigger_up('load', {
-                id: this.value.id,
+            self.trigger_up('load', {
+                id: self.value.id,
                 limit: new_state.limit,
                 offset: new_state.current_min - 1,
                 on_success: function (value) {
@@ -931,6 +933,7 @@ var FieldX2Many = AbstractField.extend({
      *                     did not agree to discard.
      */
     _saveLine: function (recordID) {
+        var self = this;
         var def = $.Deferred();
         var fieldNames = this.renderer.canBeSaved(recordID);
         if (fieldNames.length) {
@@ -942,7 +945,9 @@ var FieldX2Many = AbstractField.extend({
         } else {
             this.renderer.setRowMode(recordID, 'readonly').done(def.resolve.bind(def));
         }
-        return def;
+        return def.then(function () {
+            self.pager.updateState({ size: self.value.count });
+        });
     },
     /**
      * Parses the 'columnInvisibleFields' attribute to search for the domains
@@ -1010,7 +1015,10 @@ var FieldX2Many = AbstractField.extend({
      * @param {OdooEvent} ev
      */
     _onDiscardChanges: function (ev) {
-        ev.data.fieldName = this.name;
+        if (ev.target !== this) {
+            ev.stopPropagation();
+            this.trigger_up('discard_changes', _.extend({}, ev.data, {fieldName: this.name}));
+        }
     },
     /**
      * Called when the renderer asks to edit a line, in that case simply tells
@@ -1021,6 +1029,7 @@ var FieldX2Many = AbstractField.extend({
      */
     _onEditLine: function (ev) {
         ev.stopPropagation();
+        this.trigger_up('freeze_order', {id: this.value.id});
         var editedRecord = this.value.data[ev.data.index];
         this.renderer.setRowMode(editedRecord.id, 'edit')
             .done(ev.data.onSuccess);
@@ -1106,7 +1115,9 @@ var FieldX2Many = AbstractField.extend({
      * @param {OdooEvent} event
      */
     _onResequence: function (event) {
+        event.stopPropagation();
         var self = this;
+        this.trigger_up('freeze_order', {id: this.value.id});
         var rowIDs = event.data.rowIDs.slice();
         var rowID = rowIDs.pop();
         var defs = _.map(rowIDs, function (rowID, index) {
@@ -1126,6 +1137,11 @@ var FieldX2Many = AbstractField.extend({
                 operation: 'UPDATE',
                 id: rowID,
                 data: _.object([event.data.handleField], [event.data.offset + rowIDs.length]),
+            }).always(function () {
+                self.trigger_up('toggle_column_order', {
+                    id: self.value.id,
+                    name: event.data.handleField,
+                });
             });
         });
     },
@@ -1169,7 +1185,20 @@ var FieldOne2Many = FieldX2Many.extend({
         return this._super.apply(this, arguments).then(function () {
             if (ev && ev.target === self && ev.data.changes && self.view.arch.tag === 'tree') {
                 if (ev.data.changes[self.name].operation === 'CREATE') {
-                    var index = self.editable === 'top' ? 0 : self.value.data.length - 1;
+                    var index = 0;
+                    if (self.editable !== 'top') {
+                        index = self.value.data.length - 1;
+                        // we consider that a new record, created in the bottom,
+                        // does not count as a record worth mentioning in the
+                        // pager, at least not until the line has been saved.
+                        // We prevent the pager from increasing its size, which
+                        // means that the pager is not displayed when we just
+                        // reach the limit.  For example, if limit is 3, if we
+                        // have 3 records, and we click on add, we will see the
+                        // 4 records on the same page, but we do not want a
+                        // pager.
+                        self.pager.updateState({ size: self.value.count - 1});
+                    }
                     var newID = self.value.data[index].id;
                     self.renderer.editRecord(newID);
                 }
@@ -1232,6 +1261,7 @@ var FieldOne2Many = FieldX2Many.extend({
                 }
             } else if (!this.creatingRecord) {
                 this.creatingRecord = true;
+                this.trigger_up('freeze_order', {id: this.value.id});
                 this._setValue({
                     operation: 'CREATE',
                     position: this.editable,
@@ -1380,12 +1410,12 @@ var FieldMany2ManyBinaryMultiFiles = AbstractField.extend({
             throw _.str.sprintf(msg, this.field.string);
         }
 
+        this.uploadedFiles = {};
         this.uploadingFiles = [];
         this.fileupload_id = _.uniqueId('oe_fileupload_temp');
         $(window).on(this.fileupload_id, this._onFileLoaded.bind(this));
 
         this.metadata = {};
-        this._generatedMetadata();
     },
 
     destroy: function () {
@@ -1415,10 +1445,10 @@ var FieldMany2ManyBinaryMultiFiles = AbstractField.extend({
     _generatedMetadata: function () {
         var self = this;
         _.each(this.value.data, function (record) {
-            // attachments are tagged `allowUnlink` because only new attachments
-            // will be unlinked after deletion
+            // tagging `allowUnlink` ascertains if the attachment was user
+            // uploaded or was an existing or system generated attachment
             self.metadata[record.id] = {
-                allowUnlink: false,
+                allowUnlink: self.uploadedFiles[record.data.id] || false,
                 url: self._getFileUrl(record.data),
             };
         });
@@ -1430,6 +1460,7 @@ var FieldMany2ManyBinaryMultiFiles = AbstractField.extend({
     _render: function () {
         // render the attachments ; as the attachments will changes after each
         // _setValue, we put the rendering here to ensure they will be updated
+        this._generatedMetadata();
         this.$('.oe_placeholder_files, .oe_attachments')
             .replaceWith($(qweb.render('FieldBinaryFileUploader.files', {
                 widget: this,
@@ -1537,6 +1568,7 @@ var FieldMany2ManyBinaryMultiFiles = AbstractField.extend({
                 self.do_warn(_t('Uploading Error'), file.error);
             } else {
                 attachment_ids.push(file.id);
+                self.uploadedFiles[file.id] = true;
             }
         });
 

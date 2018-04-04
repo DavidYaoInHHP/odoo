@@ -7,6 +7,7 @@
 # Ediz Duman <neps1192@gmail.com>, 2017
 # Gökhan Erdoğdu <gokhan.erdogdu@mechsoft.com.tr>, 2017
 # Ayhan KIZILTAN <akiziltan76@hotmail.com>, 2017
+# Martin Trigaux, 2017
 # Emre Akayoğlu <emre.akayoglu@mechsoft.com.tr>, 2017
 # Ertuğrul Güreş <ertugrulg@projetgrup.com>, 2017
 msgid ""
@@ -200,12 +201,12 @@ msgstr "Oluşturulma"
 #. module: account_bank_statement_import
 #: model:ir.model.fields,field_description:account_bank_statement_import.field_account_bank_statement_import_journal_creation_refund_sequence_id
 msgid "Credit Note Entry Sequence"
-msgstr ""
+msgstr "İade/Fiyat Farkı Giriş Sırası"
 
 #. module: account_bank_statement_import
 #: model:ir.model.fields,field_description:account_bank_statement_import.field_account_bank_statement_import_journal_creation_refund_sequence_number_next
 msgid "Credit Notes: Next Number"
-msgstr ""
+msgstr "İade/Fiyat Farkları : Sıradaki Numara"
 
 #. module: account_bank_statement_import
 #: model:ir.model.fields,field_description:account_bank_statement_import.field_account_bank_statement_import_journal_creation_currency_id
@@ -220,7 +221,7 @@ msgstr "Borç Metodu"
 #. module: account_bank_statement_import
 #: model:ir.model.fields,field_description:account_bank_statement_import.field_account_bank_statement_import_journal_creation_refund_sequence
 msgid "Dedicated Credit Note Sequence"
-msgstr ""
+msgstr "İade/Fiyat Farkı Sırası"
 
 #. module: account_bank_statement_import
 #: model:ir.model.fields,field_description:account_bank_statement_import.field_account_bank_statement_import_journal_creation_default_credit_account_id
@@ -495,7 +496,7 @@ msgid ""
 "The currency of the bank statement (%s) is not the same as the currency of "
 "the journal (%s) !"
 msgstr ""
-"Banka hesap özetinin para birimi (% s) günlüğün para birimi (% s) ile aynı "
+"Banka hesap özetinin para birimi (%s) günlüğün para birimi (%s) ile aynı "
 "değil!"
 
 #. module: account_bank_statement_import
@@ -512,7 +513,7 @@ msgstr ""
 #. module: account_bank_statement_import
 #: model:ir.model.fields,help:account_bank_statement_import.field_account_bank_statement_import_journal_creation_refund_sequence_number_next
 msgid "The next sequence number will be used for the next credit note."
-msgstr ""
+msgstr "Sonraki İade/Fiyat Farkı için sıradaki numara kullanılacak"
 
 #. module: account_bank_statement_import
 #: model:ir.model.fields,help:account_bank_statement_import.field_account_bank_statement_import_journal_creation_sequence_number_next
@@ -594,7 +595,7 @@ msgid ""
 " journal: %s"
 msgstr ""
 "Yevmiye için bir Varsayılan Borç Hesap ve Varsayılan Kredi Hesabı "
-"ayarlamanız gerekir:% s"
+"ayarlamanız gerekir: %s"
 
 #. module: account_bank_statement_import
 #: model:ir.ui.view,arch_db:account_bank_statement_import.account_bank_statement_import_view
