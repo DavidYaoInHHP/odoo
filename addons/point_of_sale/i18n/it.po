@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Martin Trigaux, 2017
+# Cécile Collart <cco@odoo.com>, 2017
 # Paolo Valier, 2017
 # Pietro Della Notte <pdellanotte@gmail.com>, 2017
 # Paolo Caruccio <paolo.caruccio66@gmail.com>, 2018
@@ -197,7 +198,7 @@ msgstr ""
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.view_pos_config_kanban
 msgid "<span>Reporting</span>"
-msgstr ""
+msgstr "Report"
 
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.view_pos_config_kanban
@@ -217,7 +218,7 @@ msgstr ""
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.report_statement
 msgid "<strong>Journal</strong>:<br/>"
-msgstr ""
+msgstr "<strong>Sezionale</strong>:<br/>"
 
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.report_statement
@@ -1637,6 +1638,10 @@ msgid ""
 "can also decide to not put lots in this operation type.  This means it will "
 "create stock with no lot or not put a restriction on the lot taken. "
 msgstr ""
+"Se questo è selezionato, sarai in grado di scegliere i Lotti / Numeri di "
+"serie. Puoi anche decidere di non mettere lotti in questo tipo di "
+"operazione. Ciò significa che creerà uno stock senza molto o non imporrà una"
+" restrizione sul lotto preso."
 
 #. module: point_of_sale
 #: model:ir.actions.act_window,help:point_of_sale.product_pos_category_action
@@ -1716,7 +1721,7 @@ msgstr ""
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_order_note
 msgid "Internal Notes"
-msgstr "Note Interne"
+msgstr "Appunti"
 
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
@@ -1777,17 +1782,17 @@ msgstr ""
 #: model:ir.model,name:point_of_sale.model_account_journal
 #: model:ir.model.fields,field_description:point_of_sale.field_report_pos_order_journal_id
 msgid "Journal"
-msgstr ""
+msgstr "Sezionale"
 
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
 msgid "Journal Entries"
-msgstr ""
+msgstr "Voci sezionale"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_order_account_move
 msgid "Journal Entry"
-msgstr ""
+msgstr "Voce sezionale"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_config_iface_big_scrollbars
@@ -1889,7 +1894,7 @@ msgstr "Caricamento"
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_order_location_id
 #: model:ir.model.fields,field_description:point_of_sale.field_report_pos_order_location_id
 msgid "Location"
-msgstr ""
+msgstr "Location"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_session_login_number
@@ -1973,7 +1978,7 @@ msgstr ""
 #: code:addons/point_of_sale/static/src/xml/pos.xml:553
 #, python-format
 msgid "Method"
-msgstr ""
+msgstr "Metodo"
 
 #. module: point_of_sale
 #: model:product.product,name:point_of_sale.product_product_consumable
@@ -2527,7 +2532,7 @@ msgstr ""
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_order_picking_id
 msgid "Picking"
-msgstr ""
+msgstr "Picking"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_session_picking_count
@@ -2870,7 +2875,7 @@ msgstr "Modello Prodotto"
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_product_uom
 msgid "Product Unit of Measure"
-msgstr ""
+msgstr "Unità di misura del prodotto"
 
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_product_uom_categ
@@ -2988,7 +2993,7 @@ msgstr ""
 #. module: point_of_sale
 #: model:ir.ui.menu,name:point_of_sale.menu_point_rep
 msgid "Reporting"
-msgstr "Reportistica"
+msgstr "Report"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_config_module_pos_reprint

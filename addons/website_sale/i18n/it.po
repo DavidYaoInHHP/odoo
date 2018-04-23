@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Martin Trigaux, 2017
+# Cécile Collart <cco@odoo.com>, 2017
 # Paolo Valier, 2017
 # Pietro Della Notte <pdellanotte@gmail.com>, 2017
 # Paolo Caruccio <paolo.caruccio66@gmail.com>, 2018
@@ -1551,7 +1552,7 @@ msgstr ""
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
 msgid "FedEx"
-msgstr ""
+msgstr "FedEx"
 
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_ir_model_fields
@@ -2094,7 +2095,7 @@ msgstr "Numero di Carrelli abbandonati"
 #: code:addons/website_sale/static/src/xml/website_sale.xml:12
 #, python-format
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
@@ -2573,7 +2574,7 @@ msgstr "Prodotti correlati"
 #. module: website_sale
 #: model:ir.ui.menu,name:website_sale.menu_reporting
 msgid "Reporting"
-msgstr "Reportistica"
+msgstr "Report"
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.404

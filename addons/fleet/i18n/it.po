@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Martin Trigaux, 2017
+# Cécile Collart <cco@odoo.com>, 2017
 # Paolo Valier, 2017
 # Manuela Feliciani <mfeliciani@alice.it>, 2018
 # Luigi Di Naro <gigidn@gmail.com>, 2018
@@ -925,7 +926,7 @@ msgstr ""
 #. module: fleet
 #: selection:fleet.vehicle.log.contract,state:0
 msgid "Incoming"
-msgstr ""
+msgstr "In entrata"
 
 #. module: fleet
 #: model:ir.ui.view,arch_db:fleet.fleet_vehicle_log_contract_view_form
@@ -1066,7 +1067,7 @@ msgstr ""
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_location
 msgid "Location"
-msgstr ""
+msgstr "Location"
 
 #. module: fleet
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle_location
@@ -1521,7 +1522,7 @@ msgstr "Veicolo sostitutivo"
 #. module: fleet
 #: model:ir.ui.menu,name:fleet.menu_fleet_reporting
 msgid "Reporting"
-msgstr "Reportistica"
+msgstr "Report"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_residual_value
